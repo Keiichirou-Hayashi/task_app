@@ -1,0 +1,43 @@
+body{
+  margin: 0;
+  padding: 0;
+  position: relative;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+header{
+  background-color: rgb(185, 44, 44);
+  width: 100%;
+  padding: 10px;
+  margin: 0px;
+}
+footer{
+  background-color: rgb(185, 44, 44);
+  width: 100%;
+  padding: 10px;
+  margin: 0px;
+  position: absolute;
+  bottom: 0px;
+}
+
+h1{
+  color: azure;
+}
+
+table{
+  border-collapse: collapse;
+}
+
+
+table th{
+  background-color: rgb(243, 210, 210);
+  padding: 10px 20px;
+  border: 1px solid black;
+}
+
+//index.html.erb
+
+.main_container{
+  margin: 50px 15px;
+}
