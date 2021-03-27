@@ -2,6 +2,10 @@
 <div class = main_container>
   <h2>スケジュール一覧</h2>
 
+  <% if flash.notice %>
+    <p class="notice"><%= flash.notice %></p>
+  <% end %>
+
   <table>
     <thead>
       <tr>
@@ -24,7 +28,7 @@
           <td><%= task.start_day %></td>
           <td><%= task.end_day %></td>
           <td><%= task.all_day %></td>
-          <td><%= task.updated_at %></td>
+          <td><%= task.updated_at.to_s(:datetime_jp) %></td>
           <td>
             <%= link_to "確認", task %>
           </td>
