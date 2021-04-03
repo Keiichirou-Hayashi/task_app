@@ -3,28 +3,28 @@
 <table>
   <tr>
     <th>タイトル</th>
-    <td><%= @task.title</td>
+    <td><%= @task.title %></td>
   </tr>
   <tr>
     <th>開始日</th>
-    <td><%= @task.start_day</td>
+    <td><%= @task.start_day.to_s(:date) %></td>
   </tr>
   <tr>
     <th>終了日</th>
-    <td><%= @task.end_day</td>
+    <td><%= @task.end_day.to_s(:date) %></td>
   </tr>
   <tr>
     <th>終日</th>
-    <td><%= @task.all_day</td>
+    <td><%= @task.all_day %></td>
   </tr>
   <tr>
     <th>スケジュール更新</th>
-    <td><%= @task.updated_at</td>
+    <td><%= @task.updated_at.to_s(:datetime_jp) %></td>
   </tr>
 </table>
 
 <div>
-  >ul>
+  <ul>
     <li><%= link_to "スケジュール一覧に戻る", :task_index %></li>
   </ul>
 </div>

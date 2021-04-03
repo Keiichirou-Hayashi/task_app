@@ -1,47 +1,78 @@
+//共通のスタイル
 body{
   margin: 0;
   padding: 0;
   position: relative;
   min-height: 100vh;
   box-sizing: border-box;
+  padding-bottom: 100px;
 }
-
-header{
-  background-color: rgb(185, 44, 44);
+header, footer{
+  background-color: rgb(192, 38, 38);
   width: 100%;
   padding: 10px;
   margin: 0px;
 }
 footer{
-  background-color: rgb(185, 44, 44);
-  width: 100%;
-  padding: 10px;
-  margin: 0px;
   position: absolute;
   bottom: 0px;
 }
-
 h1{
   color: azure;
 }
-
+a{
+  text-decoration: none;
+}
 table{
   border-collapse: collapse;
 }
-
-
-table th{
+table th,table td{
   background-color: rgb(243, 210, 210);
   padding: 10px 20px;
   border: 1px solid black;
 }
-
+table td{
+  background-color: #f1c8c861;
+  text-align: center;
+}
+tr{
+  text-align: center;
+}
 li{
   list-style: none;
 }
-
-//index.html.erb
-
 .main_container{
   margin: 50px 15px;
+}
+
+//new.html,edit.html
+input, pre{
+  padding: 5px;
+  width: 100%;
+  font-size: 16px;
+}
+input[type="submit"]{
+  width: auto;
+}
+.posts-content{
+  width: 350px;
+  height: 200px;
+  font-size: 16px;
+}
+
+
+//flashメッセージ
+.notice{
+  background-color: aquamarine;
+  border: 2px solid rgb(45, 231, 169);
+  width: 300px;
+  line-height: 50px;
+  text-align: center;
+}
+.aleart{
+  background-color: pink;
+  border: 2px solid rgb(241, 93, 118);
+  width: 300px;
+  line-height: 50px;
+  text-align: center;
 }

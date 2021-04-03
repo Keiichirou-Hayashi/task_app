@@ -1,6 +1,7 @@
 class TaskController < ApplicationController
   def index
     @tasks = Task.all
+    render :layout => 'task_layout'
   end
 
   def new
@@ -8,12 +9,17 @@ class TaskController < ApplicationController
   end
 
   def create
-    @task = Task.new(params.permit(:title, :start_day, :end_day, :all_day))
+    @task = Task.new(params.require(:task).permit(:title ,:start_day ,:end_day ,:all_day ,:memo))
     if @task.save
-      flash[:notice] = "スケジュールを登録しました。"
+      flash[:notice] = "スケジュールを登録しました"
       redirect_to :task_index
     else
-      render :new_task
+        flash.now[:aleart] = "スケジュールを登録できませんでした"
+        render action: :new
+    end
+
+    if @task.save == false
+      flash[:aleart] = "スケジュールを登録できませんでした"
     end
   end
 
@@ -26,19 +32,20 @@ class TaskController < ApplicationController
   end
 
   def update
-    @task = Task.update(params.require(:task).permit(:title, :start_day, :end_day, :all_day))
-    if @task.save
-      flash[:notice] = "#{@user.id}のスケジュールを編集しました。"
+    @task = Task.find(params[:id]) 
+    if @task.update(params.require(:task).permit(:title ,:start_day ,:end_day ,:all_day ,:memo))
+      flash[:notice] = "スケジュールを編集しました"
       redirect_to :task_index
     else
-      render :edit_task
+      flash.now[:aleart] = "スケジュールを登録できませんでした"
+      render action: :edit
     end
   end
 
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
-    flash[:notice] = "スケジュールを削除しました。"
+    flash[:aleart] = "スケジュールを削除しました"
     redirect_to :task_index
   end
 end
